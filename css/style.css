@@ -1,0 +1,379 @@
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+  transition: all 0.5s ease;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  position: relative;
+  overflow-x: hidden;
+  min-height: 100vh;
+  font-family: "Noto Sans JP", sans-serif;
+  font-feature-settings: "palt";
+  letter-spacing: 0.05em;
+}
+
+a {
+  text-decoration: none;
+  color: #ad4c4c;
+}
+
+.fa-solid {
+  color: #ad4c4c;
+  font-size: 2rem;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  align-items: center;
+  width: 100%;
+}
+
+.header {
+  height: 60px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  background: transparent;
+}
+@media screen and (max-width: 960px) {
+  .header {
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+}
+.header_left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.header_left_sidebar {
+  width: 3rem;
+  height: 3rem;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+.header_left_sidebar .fa-table-columns {
+  line-height: 3rem;
+}
+.header_left_sidebar:hover {
+  background-color: rgba(173, 76, 76, 0.1);
+}
+.header_left_newchat {
+  width: 3rem;
+  height: 3rem;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+.header_left_newchat .fa-pen-to-square {
+  line-height: 3rem;
+}
+.header_left_newchat:hover {
+  background-color: rgba(173, 76, 76, 0.1);
+}
+.header_left h1 {
+  font-weight: normal;
+  font-size: 1.7rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  color: #ad4c4c;
+}
+.header_left h1:hover {
+  background-color: rgba(173, 76, 76, 0.1);
+}
+.header_left h1 span {
+  margin-left: 0.5rem;
+  color: pink;
+}
+.header_left h1 .fa-angle-down {
+  color: pink;
+  font-size: 1.5rem;
+  margin-left: 0.5rem;
+}
+.header_right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.header_right_canvas {
+  width: 3rem;
+  height: 3rem;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+.header_right_canvas:hover {
+  background-color: rgba(173, 76, 76, 0.1);
+}
+.header_right_share {
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  padding: 0.7rem 1.5rem;
+  border: 1px solid #999;
+  border-radius: 50px;
+  text-decoration: none;
+  color: #ad4c4c;
+  font-weight: 550;
+}
+.header_right_share .fa-arrow-up-from-bracket {
+  font-size: 1.3rem;
+  margin-right: 0.5rem;
+}
+.header_right_share:hover {
+  background-color: rgba(173, 76, 76, 0.1);
+}
+.header_right_archive {
+  width: 3rem;
+  height: 3rem;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  border-radius: 5px;
+  border-radius: 50%;
+}
+.header_right_archive:hover {
+  background-color: rgba(173, 76, 76, 0.1);
+}
+.header_right_icon {
+  width: 4rem;
+  height: 4rem;
+  text-align: center;
+  border-radius: 50%;
+}
+.header_right_icon:hover {
+  background-color: rgba(173, 76, 76, 0.1);
+}
+.header_right_icon .fa-circle-user {
+  font-size: 3rem;
+  line-height: 4rem;
+}
+
+.main {
+  padding-top: 60px;
+}
+.main .chat_phrase {
+  background-color: pink;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  height: calc(100vh - 60px - 130px - 2rem);
+  min-height: 800px;
+  padding: 2rem;
+  padding-bottom: calc(130px + 2rem);
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+}
+.main .chat_phrase::-webkit-scrollbar {
+  width: 2rem;
+}
+.main .chat_phrase::-webkit-scrollbar-track {
+  background-color: #ffe5e5;
+  border-radius: 2rem;
+}
+.main .chat_phrase::-webkit-scrollbar-thumb {
+  background-color: #ad4c4c;
+  border-radius: 2rem;
+}
+.main .chat_phrase p.user_message {
+  font-size: 2rem;
+  display: inline-block;
+  position: relative;
+  background-color: #fff;
+  color: #ad4c4c;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  max-width: 100%;
+  width: -moz-fit-content;
+  width: fit-content;
+  line-height: 1.4;
+  animation: fadeInUp 0.3s ease forwards;
+  margin-left: auto;
+  margin-right: 0;
+  word-break: break-word;
+}
+.main .chat_phrase p.user_message::before {
+  content: "";
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+  width: 2rem;
+  height: 3rem;
+  border-radius: 0 0 1.5rem 0;
+  box-shadow: 3px -15px 0 -7px #fff inset;
+}
+
+.message_wrapper {
+  display: inline-flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  align-items: flex-end;
+  max-width: 70%;
+  margin-left: auto;
+}
+
+.message_time {
+  font-size: 1.4rem;
+  color: #999;
+  align-self: flex-end;
+  line-height: 1;
+  margin: 0.2rem 1rem 1.2rem 0;
+}
+
+.submit {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: transparent;
+  padding: 1rem;
+}
+.submit .container .submit_box {
+  height: auto;
+  background-color: white;
+  border: 1px solid #eee;
+  border-radius: 17px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.submit .container .submit_box textarea {
+  width: 100%;
+  height: auto;
+  min-height: 2.5rem;
+  max-height: 12.5rem;
+  padding: 2rem;
+  border: none;
+  resize: none;
+  overflow-y: auto;
+  font-size: 1.7rem;
+  color: #ad4c4c;
+  line-height: 2.5rem;
+}
+.submit .container .submit_box textarea::-moz-placeholder {
+  color: #ad4c4c;
+  opacity: 0.6;
+}
+.submit .container .submit_box textarea::placeholder {
+  color: #ad4c4c;
+  opacity: 0.6;
+}
+.submit .container .submit_box textarea:focus {
+  border: none;
+  outline: none;
+}
+.submit .container .submit_box .contents {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.submit .container .submit_box .contents_left {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.submit .container .submit_box .contents_left_addfile {
+  text-align: center;
+  gap: 1rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+}
+.submit .container .submit_box .contents_left_addfile:hover {
+  background-color: rgba(173, 76, 76, 0.1);
+}
+.submit .container .submit_box .contents_left_addfile .fa-plus {
+  line-height: 3rem;
+  font-size: 1.5rem;
+  color: #ad4c4c;
+}
+.submit .container .submit_box .contents_left_addcontents {
+  text-align: center;
+  font-size: 1.5rem;
+  height: 3rem;
+  line-height: 3rem;
+  padding: 0 1rem;
+  border-radius: 7px;
+  color: #ad4c4c;
+}
+.submit .container .submit_box .contents_left_addcontents:hover {
+  background-color: rgba(173, 76, 76, 0.1);
+}
+.submit .container .submit_box .contents_left_addcontents .fa-sliders {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+  color: #ad4c4c;
+}
+.submit .container .submit_box .contents_right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.submit .container .submit_box .contents_right_voice {
+  width: 3.5rem;
+  height: 3.5rem;
+  text-align: center;
+  border-radius: 50%;
+}
+.submit .container .submit_box .contents_right_voice:hover {
+  background-color: rgba(173, 76, 76, 0.1);
+}
+.submit .container .submit_box .contents_right_voice .fa-microphone {
+  line-height: 3.5rem;
+  color: #ad4c4c;
+}
+.submit .container .submit_box .contents_right_voiceUse {
+  background-color: #ad4c4c;
+  width: 3.5rem;
+  height: 3.5rem;
+  text-align: center;
+  border-radius: 50%;
+}
+.submit .container .submit_box .contents_right_voiceUse .fa-wave-square, .submit .container .submit_box .contents_right_voiceUse .fa-arrow-up {
+  color: #fff;
+  line-height: 3.5rem;
+  font-size: 1.5rem;
+}/*# sourceMappingURL=style.css.map */
